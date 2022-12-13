@@ -82,12 +82,9 @@ export default {
        submit() {
         this.v$.$touch();
            if(!this.v$.$invalid) {
-                this.signIn(this.user).then(() => {
-                
+                this.signIn(this.user).then(() => {  
                 document.querySelector('.close').click();
-                this.$router.replace({name: 'dashboard'})
-                
-
+                this.$router.replace({name: 'dashboard'})  
             });
            }
        },
@@ -114,9 +111,6 @@ export default {
             } )
         }
        }
-    },
-    mounted() {
-
     },
     computed: {
         ...mapGetters({
@@ -236,8 +230,6 @@ export default {
 }
 /* end media */
 /* end MODAL */
-
-
 .modal-body form .text-fields-error {
     border: 1px solid #ff00008f !important;
 }
@@ -249,9 +241,6 @@ export default {
     font-size: 13px;
     margin-top: 5px;
 }
-
-
-
 .left button {
     width: 100%;
     background-color: black;
@@ -272,15 +261,6 @@ export default {
     color: #000000b0;
     text-decoration: none;
 }
-
-
-
-
-
-
-
-
-
 .modal-content {
     padding: 85px;
 }

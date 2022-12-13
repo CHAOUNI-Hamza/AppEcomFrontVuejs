@@ -53,15 +53,6 @@ export default {
 
 <style scoped>
 /* start MODAL */
-/*.modal-content .btn-close {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    border: 1px solid #a69f9f;
-    border-radius: 50%;
-    padding: 11px;
-    font-size: 10px;
-}*/
 .modal-body {
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -154,16 +145,6 @@ export default {
     height: 100%!important;
 }
 /* end button modal */
-/* start media */
-@media (min-width: 576px) {
-.modal .modal-dialog {
-    max-width: 625px!important;
-}
-}
-/* end media */
-/* end MODAL */
-
-
 .modal-body form .text-fields-error {
     border: 1px solid #ff00008f !important;
 }
@@ -175,6 +156,14 @@ export default {
     font-size: 13px;
     margin-top: 5px;
 }
+/* start media */
+@media (min-width: 576px) {
+.modal .modal-dialog {
+    max-width: 625px!important;
+}
+}
+/* end media */
+/* end MODAL */
 </style>
 
 

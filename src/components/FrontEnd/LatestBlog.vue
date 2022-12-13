@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* start latest-blog */
 .latest-blog {
   background-color: #fafafa;
@@ -81,13 +81,10 @@ export default {
 .latest-blog .card .details p {
     opacity: 0.8;
 }
-
-
-
 @media (max-width: 390px) {
-  .latest-blog {
-    padding: 41px 30px;
-}
+    .latest-blog {
+      padding: 41px 30px;
+  }
 }
 /* end latest-blog */
 </style>

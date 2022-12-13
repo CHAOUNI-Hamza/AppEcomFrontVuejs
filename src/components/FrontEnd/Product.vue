@@ -62,11 +62,6 @@ export default {
 }
 </script>
 
-<style>
-/* start product */
-/* end product */
-</style>
-
 
 
 

@@ -131,6 +131,12 @@ export default {
     margin-top: 5px;
     text-align: left;
 }
+/* @media */
+@media (max-width: 390px) {
+    .form-check label {
+        margin-right: 156px;
+    }
+}
 </style>
 
 

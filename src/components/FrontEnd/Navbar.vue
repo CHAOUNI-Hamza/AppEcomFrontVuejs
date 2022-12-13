@@ -173,10 +173,6 @@ export default {
     font-size: 13px;
     font-family: revert;
 }
-
-
-
-
 /* start cart-drawer */
 .cart-drawer {
       width: 300px;

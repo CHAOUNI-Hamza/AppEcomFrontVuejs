@@ -422,14 +422,7 @@ export default {
 }
 
 /* end media */
-
 /* end footer */
-
-
-
-
-
-
 /* we will explain what these classes do next! */
 .v-enter-active,
 .v-leave-active {
@@ -440,17 +433,6 @@ export default {
 .v-leave-to {
   opacity: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
 .footer form .text-fields-error {
     border: 1px solid #ff00008f !important;
 }
@@ -462,7 +444,6 @@ export default {
     font-size: 13px;
     margin-top: 5px;
 }
-
 </style>
 
 

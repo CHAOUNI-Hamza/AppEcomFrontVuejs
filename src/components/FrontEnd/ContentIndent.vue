@@ -21,7 +21,8 @@
               <CardContentIndent :category="category"/>
             </div>
           </swiper-slide>
-        </swiper>   
+        </swiper>  
+
         </div>
       </div>
     </div>
@@ -52,13 +53,13 @@ export default {
         'getCategories' : 'categories/getCategoriesAction'
     }),
     calculSlides() {
-      if( window.innerWidth >= 768 ) {
+      if ( window.innerWidth >= 768 ) {
         this.slidesPerView = 4
       }
-      else if( window.innerWidth >= 576 ) {
+      else if ( window.innerWidth >= 576 ) {
         this.slidesPerView = 2
       }
-      if( window.innerWidth < 576 ) {
+      if ( window.innerWidth < 576 ) {
         this.slidesPerView = 1
       }
     }
@@ -79,32 +80,10 @@ export default {
 /* start ContentIndent */
 .shopify-section-categorie {
   font-family: 'Roboto Condensed', sans-serif;
-  }
-.contenue {
-  position: absolute;
-    top: 78%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 21px;
-    width: 58%;
-}
-.contenue .btn {
-    background: black;
-    border-radius: 0;
-    color: white;
-    font-size: 12px;
-}
-.shopify-section-categorie {
   margin: 45px;
   position: relative;
-}
-.shopify-section-categorie .img {
-    padding-bottom: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: all ease-out .4s;
-}
+  }
+
 .shopify-section-categorie .title {
   margin-bottom: 22px;
 }
@@ -112,67 +91,11 @@ export default {
     font-weight: 600;
     
 }
-.shopify-section-categorie .img:hover {
-  transform: scale(1.1);
-}
-.shopify-section-categorie .collection-grid-item {
-  position: relative;
-  overflow: hidden;
-}
-.shopify-section-categorie .collection-grid-item .details {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 50px;
-    right: 0;
-    padding: 20px;
-    text-align: center;
-    background: white;
-    color: black;
-    width: 60%;
-}
-.shopify-section-categorie .collection-grid-item .details h3 {
-  font-family: fantasy;
-    font-size: 24px;
-}
-.shopify-section-categorie .collection-grid-item .details p {
-  font-family: inherit;
-  color: black;
-}
-.shopify-section-categorie .collection-grid-item .details .btn {
-  background: black;
-    border-radius: 0;
-    color: white;
-    font-weight: 700;
-    padding: 8px 27px;
-}
-.link {
-  color: black;
-  text-decoration: none;
-}
-.shopify-section-categorie .card {
-  width: 100%;
-  border-radius: 0 !important;
-}
-/* end ContentIndent */
-
-
-
-
-
-
-
-
-
-
-
-
-.swiper {
+.shopify-section-categorie .swiper {
   width: 100%;
   height: 100%;
 }
-
-.swiper-slide {
+.shopify-section-categorie .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -192,12 +115,58 @@ export default {
   align-items: center;
 }
 
-.swiper-slide img {
+.shopify-section-categorie .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+/* end ContentIndent */
+/* start cardContentIndent */
+.shopify-section-categorie .card {
+    position: relative;
+    transition: all ease-out .4s;
+    width: 100%;
+    border-radius: 0 !important;
+}
+.shopify-section-categorie .contenu {
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 14px 18px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.shopify-section-categorie .contenu .btn {
+    background: black;
+    border-radius: 0;
+    color: white;
+    box-shadow: 28px 42px 58px rgb(34 28 7 / 22%);
+    border: none;
+}
+.shopify-section-categorie .link {
+  color: black;
+  text-decoration: none;
+}
+.shopify-section-categorie .card .img {
+    padding-bottom: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.shopify-section-categorie .card:hover .img {
+  transform: scale(1.1);
+}
+/* @media  */
+@media (max-width: 390px) {
+  .shopify-section-categorie .card .img-wrap .img {
+    height: 294px;
+  }
+  .shopify-section-categorie .contenu .btn {
+    padding: 7px 8px;
+  }
+}
+/* end cardContentIndent */
 </style>
 
 

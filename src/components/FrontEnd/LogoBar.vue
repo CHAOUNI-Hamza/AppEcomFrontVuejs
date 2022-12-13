@@ -46,12 +46,11 @@ export default {
     height: 132px;
     justify-items: center;
 }
-
-
+/* @media */
 @media (max-width: 390px) {
-  .logoBar {
-    padding: 44px;
-}
+    .logoBar {
+      padding: 44px;
+  }
 }
 /* end logo Bar */
 </style>

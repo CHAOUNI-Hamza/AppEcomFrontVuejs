@@ -86,17 +86,9 @@ export default {
             }
     }
       },
-      mounted() {
-      },
-      computed: {
-
-      }
     }
 </script>
-    
-<style>
 
-</style>
 
 
     

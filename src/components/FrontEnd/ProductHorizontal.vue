@@ -7,7 +7,7 @@
               <div class="img img-one" v-bind:style="{ backgroundImage: 'url(' + product.image + ')' }"></div>
           </div>
       </div>
-      <div class="col-md-8 col-sm-12 col-12 text-left">
+      <div class="col-md-8 col-sm-12 col-12 text-left res-horizontal">
           <div class="list-view-item__title-column">
               <a href="/collections/women/products/innerbloom-puffer-jacket" class="list-view-item__title">{{ product.name }}</a>
               <span class="spr-badge">
@@ -72,8 +72,22 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+/* @media */
+@media (max-width: 390px) {
+    .categories .left {
+        display: none;
+    }
+    .categories .shopify-section .card .img-wrap .img {
+        height: 300px;
+    }
+    .res-horizontal {
+      padding: 15px 38px;
+    }
+    .categories .listview-button .btn-options {
+      padding: 9px 21px;
+  }
+}
 </style>
 
 
