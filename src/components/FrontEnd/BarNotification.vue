@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* start bar notification */
 #bar-notification {
     background-color: black;
@@ -66,16 +66,16 @@ export default {
     height: 25px;
     width: 25px;
 }
-.slide-fade-enter-active {
+#bar-notification .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
 
-.slide-fade-leave-active {
+#bar-notification .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 0.2);
 }
 
-.slide-fade-enter-from,
-.slide-fade-leave-to {
+#bar-notification .slide-fade-enter-from,
+#bar-notification .slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
 }

@@ -83,21 +83,21 @@ export default {
 
 <style scoped>
 /* start barSearchNavbar */
-img {
+.search-popup img {
   width: 100%;
 }
-.card .row {
+.search-popup .card .row {
     transition: .5s;
 }
-.card .row:hover {
+.search-popup .card .row:hover {
     background: rgb(240, 238, 238);
 }
 
-.card .product {
+.search-popup .card .product {
     text-decoration: none;
     color: #717171;
 }
-.price {
+.search-popup .price {
     font-weight: bold;
 }
 /* end barSearchNavbar */

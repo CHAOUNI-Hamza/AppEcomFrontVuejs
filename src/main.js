@@ -14,7 +14,6 @@ import BarNotification from './components/FrontEnd/BarNotification.vue'
 
 
 
-
 require('@/store/subscriber')
 
 import axios from 'axios'
