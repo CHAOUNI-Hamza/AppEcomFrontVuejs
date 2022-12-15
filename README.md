@@ -26,6 +26,24 @@ yarn lint
 
 ### Customize configuration
 
+### Descriptions
+
+1 - Outil design : AI
+2 - Front-end : Vuejs
+3 - Back-end : Laravel
+4 - API Rest
+5 - postman
+
+- Système authentification multi rôle
+  ( User, Admin, superAdmin )
+- Forgot You Password
+- Filtering products
+- Form Validation
+- Add to Cart
+- Add to Wishlist
+- Search products
+- Multi Currency
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/2.png)
