@@ -22,3 +22,5 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/2.png)
