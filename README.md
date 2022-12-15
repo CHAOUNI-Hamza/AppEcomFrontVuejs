@@ -29,6 +29,7 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/2.png)
+<<<<<<< HEAD
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/1.png)
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/3.png)
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/4.png)
@@ -45,3 +46,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/15.png)
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/16.png)
 ![alt text](https://github.com/CHAOUNI-Hamza/AppEcomFrotVuejs/blob/main/public/images/17.png)
+=======
+
+> > > > > > > 711992d21906e7774d411d410d0d8517afd9ff60
