@@ -1,126 +1,132 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Contact from '../views/Contact.vue'
-import Categories from '../views/Categories.vue'
-import About from '../views/About.vue'
-import Faqs from '../views/Faqs.vue'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import Product from '../views/Product.vue'
-import Cart from '../views/Cart.vue'
-import PageNotFound from '../views/PageNotFound.vue'
-import AdminLogin from '../views/AdminLogin.vue'
-import Resetpassword from '../views/Resetpassword.vue'
-import Wishlist from '../views/Wishlist.vue'
+import { createRouter, createWebHistory } from "vue-router";
 
-import store from '@/store';
+import store from "@/store";
 
-import Dashboard from '../views/BackEnd/Dashboard.vue'
+//import Dashboard from "../views/BackEnd/Dashboard.vue";
 
 const routes = [
-  /* Start route Back End */
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: Dashboard,
+    path: "/admin",
+    component: () =>
+      import(
+        /* webpackChunkName: "Dashboard" */ "@/views/BackEnd/Dashboard.vue"
+      ),
+    redirect: "dashboard",
+    children: [
+      {
+        path: "dashboard",
+        name: "dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "Dashboard" */ "@/views/BackEnd/Dashboard.vue"
+          ),
+        beforeEnter: (to, from, next) => {
+          if (!store.getters["auth/authenticated"]) {
+            return next({ name: "login" });
+          }
+
+          next();
+        },
+      },
+    ],
+  },
+  {
+    path: "/",
+    name: "home",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Home.vue"),
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Contact.vue"),
+  },
+  {
+    path: "/categories/:id?",
+    name: "categories",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Categories.vue"),
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/About.vue"),
+  },
+  {
+    path: "/faqs",
+    name: "faqs",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Faqs.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Login.vue"),
     beforeEnter: (to, from, next) => {
-      
-      if(!store.getters['auth/authenticated']) {
-        return next({ name: 'login' })
+      if (store.getters["auth/authenticated"]) {
+        return next({ name: "home" });
       }
 
-      next()
-
-    }
-  },
-  /* End route Back End */
-  {
-    path: '/',
-    name: 'home',
-    component: Home
+      next();
+    },
   },
   {
-    path: '/contact',
-    name: 'contact',
-    component: Contact
-  },
-  {
-    path: '/categories/:id?',
-    name: 'categories',
-    component: Categories
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About
-  },
-  {
-    path: '/faqs',
-    name: 'faqs',
-    component: Faqs
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login,
+    path: "/register",
+    name: "register",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Register.vue"),
     beforeEnter: (to, from, next) => {
-      
-      if(store.getters['auth/authenticated']) {
-        return next({ name: 'home' })
+      if (store.getters["auth/authenticated"]) {
+        return next({ name: "home" });
       }
 
-      next()
-
-    }
+      next();
+    },
   },
   {
-    path: '/register',
-    name: 'register',
-    component: Register,
-    beforeEnter: (to, from, next) => {
-      
-      if(store.getters['auth/authenticated']) {
-        return next({ name: 'home' })
-      }
-
-      next()
-
-    }
+    path: "/reset-password/:token",
+    name: "resetpassword",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Resetpassword.vue"),
   },
   {
-    path: '/reset-password/:token',
-    name: 'resetpassword',
-    component: Resetpassword
+    path: "/product/:slug",
+    name: "product",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Product.vue"),
   },
   {
-    path: '/product/:slug',
-    name: 'product',
-    component: Product
+    path: "/cart",
+    name: "cart",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Cart.vue"),
   },
   {
-    path: '/cart',
-    name: 'cart',
-    component: Cart
+    path: "/wishlist",
+    name: "wishlist",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/Wishlist.vue"),
   },
   {
-    path: '/wishlist',
-    name: 'wishlist',
-    component: Wishlist
+    path: "/admin/login",
+    name: "admin-login",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/AdminLogin.vue"),
   },
   {
-    path: '/admin/login',
-    name: 'admin-login',
-    component: AdminLogin
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "@/views/PageNotFound.vue"),
   },
-  { path: "/:pathMatch(.*)*",
-    component: PageNotFound,
-    name: 'NotFound' 
-  },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

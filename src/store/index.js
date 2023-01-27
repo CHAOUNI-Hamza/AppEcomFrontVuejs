@@ -55,7 +55,7 @@ export default createStore({
       } else {
         productInCart.qty++;
       }
-      console.log(state.cart);
+      
     },
     reduceQty(state, id) {
       const productInCart = state.cart.find((product) => product.id === id);

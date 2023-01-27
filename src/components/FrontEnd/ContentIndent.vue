@@ -1,95 +1,90 @@
 <template>
-<!-- start ContentIndent -->
-    <div class="shopify-section-categorie">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 title">
-            <h3>CATEGORIES</h3>
-            <p>Products for all categories</p>
-          </div>
+  <!-- start ContentIndent -->
+  <div class="shopify-section-categorie">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 title">
+          <h3>CATEGORIES</h3>
+          <p>Products for all categories</p>
         </div>
-        <div class="row">
-
-          <swiper
+      </div>
+      <div class="row">
+        <swiper
           :slides-per-view="slidesPerView"
           :space-between="5"
           @swiper="onSwiper"
-          @slideChange="onSlideChange"
-          >
-          <swiper-slide v-for="category in categories.data" :key="category.id"> 
+          @slideChange="onSlideChange">
+          <swiper-slide v-for="category in categories.data" :key="category.id">
             <div class="col-md-3 col-sm-6 col-xs-12 card">
-              <CardContentIndent :category="category"/>
+              <CardContentIndent :category="category" />
             </div>
           </swiper-slide>
-        </swiper>  
-
-        </div>
+        </swiper>
       </div>
     </div>
-<!-- end ContentIndent -->
+  </div>
+  <!-- end ContentIndent-->
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "swiper/vue"
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/swiper.min.css'
-import {  mapGetters, mapActions } from "vuex"
-import CardContentIndent from "./CardContentIndent.vue"
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import { mapGetters, mapActions } from "vuex";
+import CardContentIndent from "./CardContentIndent.vue";
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
-    CardContentIndent
+    CardContentIndent,
   },
   data() {
     return {
       barMessage: true,
-      slidesPerView : window.innerWidth 
-    } 
+      slidesPerView: window.innerWidth,
+    };
   },
   methods: {
     ...mapActions({
-        'getCategories' : 'categories/getCategoriesAction'
+      getCategories: "categories/getCategoriesAction",
     }),
     calculSlides() {
-      if ( window.innerWidth >= 768 ) {
-        this.slidesPerView = 4
+      if (window.innerWidth >= 768) {
+        this.slidesPerView = 4;
+      } else if (window.innerWidth >= 576) {
+        this.slidesPerView = 2;
       }
-      else if ( window.innerWidth >= 576 ) {
-        this.slidesPerView = 2
+      if (window.innerWidth < 576) {
+        this.slidesPerView = 1;
       }
-      if ( window.innerWidth < 576 ) {
-        this.slidesPerView = 1
-      }
-    }
+    },
   },
   mounted() {
-    this.getCategories()
-    this.calculSlides()  
+    this.getCategories();
+    this.calculSlides();
   },
   computed: {
     ...mapGetters({
-        'categories' : 'categories/getCategoriesGetters'
+      categories: "categories/getCategoriesGetters",
     }),
-  }
-}
+  },
+};
 </script>
 
 <style>
 /* start ContentIndent */
 .shopify-section-categorie {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   margin: 45px;
   position: relative;
-  }
+}
 
 .shopify-section-categorie .title {
   margin-bottom: 22px;
 }
 .shopify-section-categorie .title h3 {
-    font-weight: 600;
-    
+  font-weight: 600;
 }
 .shopify-section-categorie .swiper {
   width: 100%;
@@ -124,38 +119,62 @@ export default {
 /* end ContentIndent */
 /* start cardContentIndent */
 .shopify-section-categorie .card {
-    position: relative;
-    transition: all ease-out .4s;
-    width: 100%;
-    border-radius: 0 !important;
+  position: relative;
+  transition: all ease-out 0.4s;
+  width: 100%;
+  border-radius: 0 !important;
 }
 .shopify-section-categorie .contenu {
-    position: absolute;
-    bottom: -23px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 14px 18px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  border-radius: 9px;
+  bottom: -23px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*background: white;*/
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.10968137254901966) 100%
+  );
+  padding: 14px 18px;
+  box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+  transition: 0.5s;
+}
+.shopify-section-categorie .card:hover .contenu {
+  bottom: -23px;
 }
 .shopify-section-categorie .contenu .btn {
-    background: black;
-    border-radius: 0;
-    color: white;
-    box-shadow: 28px 42px 58px rgb(34 28 7 / 22%);
-    border: none;
+  /*background: black;*/
+  background: radial-gradient(
+    circle,
+    rgba(63, 165, 251, 1) 0%,
+    rgba(70, 245, 252, 1) 100%
+  );
+  border-radius: 5px;
+  color: white;
+  box-shadow: 28px 42px 58px rgb(34 28 7 / 22%);
+  border: none;
 }
 .shopify-section-categorie .link {
   color: black;
   text-decoration: none;
 }
 .shopify-section-categorie .card .img {
-    padding-bottom: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  transition: 2s;
+  opacity: 0.9;
 }
 .shopify-section-categorie .card:hover .img {
-  transform: scale(1.1);
+  transform: scale(1.5);
+  opacity: 1;
+}
+.shopify-section-categorie .card .img-wrap {
+  border-radius: 19px;
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 69%), 0 0 9px 0 rgb(0 0 0 / 19%) !important;
 }
 /* @media  */
 @media (max-width: 390px) {
@@ -168,6 +187,3 @@ export default {
 }
 /* end cardContentIndent */
 </style>
-
-
-
