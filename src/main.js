@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import demo from "./assets/css/demo.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import GlobalComponents from "./globalComponents";
 import GlobalDirectives from "./globalDirectives";
@@ -18,5 +19,6 @@ store.dispatch("auth/attempt", localStorage.getItem("token")).then(() => {
   app.use(router);
   app.mount("#app");
   app.use(GlobalComponents);
+  app.use(demo);
   app.use(GlobalDirectives);
 });

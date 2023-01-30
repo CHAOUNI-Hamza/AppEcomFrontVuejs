@@ -32,57 +32,10 @@
           <span v-if="totalQty" class="cart">{{ totalQty }}</span>
         </a>
         <!-- User -->
-        <div v-if="authenticated" class="a profile" type="button">
-          <span @click="dropdownProfile = !dropdownProfile">
-            <img
-              src="https://image.shutterstock.com/mosaic_250/2780032/1194497251/stock-photo-portrait-of-smiling-red-haired-millennial-man-looking-at-camera-sitting-in-caf-or-coffeeshop-1194497251.jpg"
-              alt="" />
-            <span class="name-user">{{ user.firstname }}</span>
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
-          </span>
-          <!-- start drop down menu -->
-          <ul
-            class="dropdown-menu-profile text-left"
-            :class="{
-              'dropdown-menu-profile-hide': !dropdownProfile,
-              'dropdown-menu-profile-show': dropdownProfile,
-            }">
-            <li>
-              <button class="dropdown-itemm">
-                <span>
-                  <router-link :to="{ name: 'categories' }" class="link">
-                    <i class="fa fa-user-o me-2" aria-hidden="true"></i>
-                    Profile
-                  </router-link>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button class="dropdown-itemm">
-                <span>
-                  <router-link :to="{ name: 'categories' }" class="link">
-                    <i class="fa fa-cogs me-2" aria-hidden="true"></i>
-                    Settings
-                  </router-link>
-                </span>
-              </button>
-            </li>
-            <li>
-              <button class="dropdown-item-logout">
-                <span>
-                  <router-link
-                    @click="logOut()"
-                    :to="{ name: 'categories' }"
-                    class="link">
-                    <i class="fa fa-sign-out me-2" aria-hidden="true"></i>
-                    Logout
-                  </router-link>
-                </span>
-              </button>
-            </li>
-          </ul>
-          <!-- end drop down menu -->
-        </div>
+        <!-- start drop down menu -->
+
+        <DropProfile />
+        <!-- end drop down menu -->
       </div>
       <!-- Show navbar responsive -->
       <label
@@ -122,17 +75,19 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import SideNavbar from "./SideNavbar.vue";
 import LinkNavbar from "./LinkNavbar.vue";
 import BarSearchNavbar from "./BarSearchNavbar.vue";
 import SettingBox from "./SettingBox.vue";
+import DropProfile from "./DropProfile.vue";
 export default {
   components: {
     SideNavbar,
     LinkNavbar,
     BarSearchNavbar,
     SettingBox,
+    DropProfile,
   },
   data() {
     return {
@@ -140,24 +95,14 @@ export default {
       showNavbaResponsive: false,
       showCartFixed: false,
       //showSettingBox: false,
-      dropdownProfile: false,
     };
   },
-  methods: {
-    ...mapActions({
-      signOut: "auth/signOut",
-    }),
-    logOut() {
-      this.signOut().then(() => this.$router.replace({ name: "Home" }));
-    },
-  },
+  methods: {},
   mounted() {
     this.$store.state.carousel.HeightNavbar = this.$refs.navbar.clientHeight;
   },
   computed: {
     ...mapGetters({
-      authenticated: "auth/authenticated",
-      user: "auth/user",
       cart: "cart",
       wish: "wish",
     }),
@@ -172,195 +117,31 @@ export default {
 </script>
 
 <style>
-.dropdown-menu-profile {
-  background: white;
+.navbar .dropdown-menu-profile {
+  background: var(--white);
   position: absolute;
-  border-radius: 5px;
-  box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
+  border-radius: var(--borderRaduis);
+  box-shadow: var(--shadow);
   list-style: none;
-  padding: 5px 20px 5px 20px;
   transition: 0.4s;
   z-index: 1000;
 }
-.dropdown-item-logout {
+.navbar .dropdown-item-logout {
   margin-top: 15px;
 }
-.dropdown-menu-profile.dropdown-menu-profile-hide {
+.navbar .dropdown-menu-profile.dropdown-menu-profile-hide {
   bottom: 60px;
   opacity: 0;
 }
-.dropdown-menu-profile.dropdown-menu-profile-show {
-  bottom: -143px;
+.navbar .dropdown-menu-profile.dropdown-menu-profile-show {
+  bottom: -211px;
   opacity: 1;
 }
-.dropdown-itemm span,
-.dropdown-item-logout span {
+.navbar .dropdown-itemm span,
+.navbar .dropdown-item-logout span {
   font-size: 13px;
   font-family: revert;
 }
-/* start cart-drawer */
-.cart-drawer {
-  width: 300px;
-  height: 100%;
-  background: white;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  transition: 1s;
-}
-.cart-drawer .fa-timess {
-  color: #000;
-  font-size: 20px;
-  opacity: 0.6;
-  position: absolute;
-  right: 10px;
-  top: 7px;
-}
-.cart-drawer.active {
-  transform: translate(400px);
-}
-.cart-drawer.none {
-  transform: translate(0);
-}
-.cart-drawer .ad-times-r {
-  color: #000;
-  font-size: 20px;
-  opacity: 0.6;
-  position: absolute;
-  right: 10px;
-  top: 7px;
-}
-.cart-drawer h4 {
-  color: #000;
-  font-size: 18px;
-  text-align: left;
-  margin: 10px 15px;
-  font-weight: 900;
-}
-.cart-drawer .ad-times-r:before {
-  content: "\eb41";
-}
-.cart-drawer .mini-products-list {
-  padding: 0 15px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.cart-drawer .grid {
-  padding: 10px 0;
-  line-height: normal;
-  border-top: 1px solid #eeeeeeee;
-  list-style: none;
-}
-
-.cart-drawer .grid img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.cart-drawer .grid .grid__item {
-  text-align: left;
-}
-.cart-drawer .grid .grid__item .remove {
-  color: black;
-  opacity: 0.5;
-  float: right;
-  padding: 7px;
-  margin: -7px -7px 0 0;
-}
-.cart-drawer .grid .grid__item .pName {
-  color: black;
-  white-space: normal;
-  text-decoration: none;
-  line-height: 1.3;
-  margin-right: 25px;
-  font-size: 14px;
-  text-align: left;
-}
-.cart-drawer .grid .grid__item .vropts {
-  color: black;
-  opacity: 0.6;
-  padding: 5px 0;
-  text-align: left;
-}
-.cart-drawer .grid .grid__item .priceRow {
-  align-items: center;
-  display: flex;
-}
-
-.cart-drawer .grid .grid__item .priceRow .qtyField {
-  max-width: 75px;
-  margin-left: auto;
-  display: flex;
-  width: 100%;
-  border: 1px solid #dddddd;
-  border-radius: 0;
-  text-align: center;
-}
-
-.cart-drawer .grid .grid__item .priceRow .qtyBtn {
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  padding: 0;
-  color: black;
-  margin: 0;
-  background: none;
-  border-radius: 0;
-  text-decoration: none;
-}
-
-.cart-drawer .grid .freeshiping {
-  list-style: none;
-  background: #efefef;
-  padding: 10px 15px;
-  margin: 18px -19px 11px -48px;
-  font-size: 14px;
-}
-.cart-drawer .shipping-button .form-check-label {
-  font-size: 13px;
-  margin-top: 5px;
-  width: 100%;
-}
-.cart-drawer .shipping-button .form-check-input {
-  border-radius: 0;
-}
-.cart-drawer .shipping-button .checkout {
-  background: #a3a0a0;
-  width: 100%;
-  border-radius: 0;
-  color: white;
-  font-weight: bold;
-  font-size: 13px;
-  margin-top: 10px;
-}
-.cart-drawer .shipping-button {
-  list-style: none;
-}
-.cart-drawer .shipping-button p {
-  font-size: 13px;
-}
-.cart-drawer .shipping-button .cart {
-  background: #ff0000;
-  width: 100%;
-  border-radius: 0;
-  color: white;
-  font-weight: bold;
-  font-size: 13px;
-  margin-top: 10px;
-}
-.cart-drawer .subtotal {
-  list-style: none;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  justify-content: space-between;
-  display: flex;
-  margin-bottom: 11px;
-}
-/* end cart-drawer */
-/* start navbar */
 .navbar {
   display: flex;
   font-family: "Roboto Condensed", sans-serif;
@@ -577,6 +358,31 @@ export default {
   opacity: 1;
   transform: translateY(0);
 }
+.navbar .a img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  background-color: #00000021;
+  padding: 3px;
+}
+.navbar .a.profile {
+  margin-left: 10px;
+  text-decoration: none;
+  position: relative;
+}
+.navbar .profile .name-user {
+  font-size: 13px;
+  margin-left: 7px;
+  color: #000000c2;
+}
+.navbar .fa-angle-down {
+  margin-left: 5px;
+}
+.navbar .checkbtn {
+  display: none;
+  cursor: pointer;
+}
 /* end navbar */
 
 /* Navbar Responsive */
@@ -593,7 +399,7 @@ export default {
   transition: all 1s ease-in-out;
   font-family: "Poppins", sans-serif;
 }
-.closemmn {
+.navbar-responsive .closemmn {
   color: #73d0f3;
   background-color: #fff;
   position: absolute;
@@ -734,42 +540,7 @@ export default {
   display: block;
   transform: translateY(0);
 }
-.navbar .a img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
 
-  background-color: #00000021;
-  padding: 3px;
-}
-.navbar .a.profile {
-  margin-left: 10px;
-  text-decoration: none;
-  position: relative;
-}
-.navbar .profile .name-user {
-  font-size: 13px;
-  margin-left: 7px;
-  color: #000000c2;
-}
-.fa-angle-down {
-  margin-left: 5px;
-}
-
-.checkbtn {
-  display: none;
-  cursor: pointer;
-}
-.modalOverly {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 666;
-  background-color: #0009;
-  transition: all 0.4s cubic-bezier(0.29, 0.63, 0.44, 1);
-}
 /* start media */
 @media (max-width: 983px) {
   .checkbtn {

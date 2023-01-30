@@ -1,0 +1,31 @@
+:root {
+  --black: black;
+  --white: #ffffff;
+  --bleuChibi: radial-gradient(
+    circle,
+    rgba(63, 165, 251, 1) 0%,
+    rgba(70, 245, 252, 1) 100%
+  );
+  --borderRaduis: 5px;
+  --colorSmallText: rgba(34, 42, 66, 0.7) !important;
+  --backgroundWhiteGradient: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.10968137254901966) 100%
+  );
+  --colorEtoile: #ffba00;
+  --red: #f5365c;
+  --gris: #e9ecef;
+  --shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+
+.modalOverly {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 666;
+  background-color: #0009;
+  transition: all 0.4s cubic-bezier(0.29, 0.63, 0.44, 1);
+}
