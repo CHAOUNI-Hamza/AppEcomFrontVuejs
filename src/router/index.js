@@ -111,12 +111,6 @@ const routes = [
       import(/* webpackChunkName: "Dashboard" */ "@/views/Wishlist.vue"),
   },
   {
-    path: "/admin/login",
-    name: "admin-login",
-    component: () =>
-      import(/* webpackChunkName: "Dashboard" */ "@/views/AdminLogin.vue"),
-  },
-  {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: () =>

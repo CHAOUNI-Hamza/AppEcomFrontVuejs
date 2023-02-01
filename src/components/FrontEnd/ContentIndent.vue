@@ -1,6 +1,6 @@
 <template>
   <!-- start ContentIndent -->
-  <div class="shopify-section-categorie">
+  <div class="shopify-section-categorie position-relative">
     <div class="container">
       <div class="row">
         <div class="col-md-12 title">
@@ -77,7 +77,6 @@ export default {
 .shopify-section-categorie {
   font-family: "Roboto Condensed", sans-serif;
   margin: 45px;
-  position: relative;
 }
 
 .shopify-section-categorie .title {
@@ -93,7 +92,7 @@ export default {
 .shopify-section-categorie .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: var(--white);
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -122,7 +121,7 @@ export default {
   position: relative;
   transition: all ease-out 0.4s;
   width: 100%;
-  border-radius: 0 !important;
+  border-radius: 19px !important;
 }
 .shopify-section-categorie .contenu {
   position: absolute;
@@ -130,34 +129,23 @@ export default {
   bottom: -23px;
   left: 50%;
   transform: translate(-50%, -50%);
-  /*background: white;*/
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.10968137254901966) 100%
-  );
+  background: var(--backgroundWhiteGradient);
   padding: 14px 18px;
-  box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+  box-shadow: var(--shadow);
   transition: 0.5s;
 }
 .shopify-section-categorie .card:hover .contenu {
   bottom: -23px;
 }
 .shopify-section-categorie .contenu .btn {
-  /*background: black;*/
-  background: radial-gradient(
-    circle,
-    rgba(63, 165, 251, 1) 0%,
-    rgba(70, 245, 252, 1) 100%
-  );
+  background: var(--bleuChibi);
   border-radius: 5px;
   color: white;
-  box-shadow: 28px 42px 58px rgb(34 28 7 / 22%);
+  box-shadow: var(--shadow);
   border: none;
 }
 .shopify-section-categorie .link {
-  color: black;
+  color: var(--black);
   text-decoration: none;
 }
 .shopify-section-categorie .card .img {
@@ -174,7 +162,7 @@ export default {
 }
 .shopify-section-categorie .card .img-wrap {
   border-radius: 19px;
-  box-shadow: 0 0 0 0 rgb(0 0 0 / 69%), 0 0 9px 0 rgb(0 0 0 / 19%) !important;
+  box-shadow: var(--shadow) !important;
 }
 /* @media  */
 @media (max-width: 390px) {

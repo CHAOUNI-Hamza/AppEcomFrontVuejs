@@ -87,7 +87,7 @@ export default {
   background-size: 100% 100%;
   height: 800px;
   border-radius: 17px;
-  box-shadow: 0 0 0 0 rgb(0 0 0 / 69%), 0 0 9px 0 rgb(0 0 0 / 19%) !important;
+  box-shadow: var(--shadow) !important;
 }
 .shopify-section-template .img:hover {
   transform: scale(1.1);
@@ -104,14 +104,9 @@ export default {
   right: 0;
   padding: 20px;
   text-align: center;
-  background: rgb(255, 255, 255);
   border-radius: 9px;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.10968137254901966) 100%
-  );
-  color: black;
+  background: var(--backgroundWhiteGradient);
+  color: var(--black);
   width: 60%;
 }
 .shopify-section-template .collection-grid-item .details h3 {
@@ -123,19 +118,15 @@ export default {
   color: black;
 }
 .shopify-section-template .collection-grid-item .details .btn {
-  background: radial-gradient(
-    circle,
-    rgba(63, 165, 251, 1) 0%,
-    rgba(70, 245, 252, 1) 100%
-  );
+  background: var(--bleuChibi);
   border-radius: 5px;
-  border-radius: 0;
-  color: white;
+  color: var(--white);
   font-weight: 700;
   padding: 8px 27px;
 }
 .link {
-  color: black;
+  color: var(--black);
+
   text-decoration: none;
 }
 .shopify-section .card.carde {
@@ -151,7 +142,7 @@ export default {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: var(--white);
 
   /* Center slide text vertically */
   display: -webkit-box;

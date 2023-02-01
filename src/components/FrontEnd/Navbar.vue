@@ -1,6 +1,6 @@
 <template>
   <!-- start navbar -->
-  <nav class="navbar navbar-expand-lg bg-light" ref="navbar">
+  <nav class="navbar navbar-expand-lg bg-light d-flex" ref="navbar">
     <div class="container">
       <router-link :to="{ name: 'home' }" class="navbar-brand">
         <img src="@/assets/logo.png" alt="" />
@@ -22,14 +22,22 @@
         <SettingBox />
 
         <!-- Wish -->
-        <router-link :to="{ name: 'wishlist' }" class="a" type="button">
+        <router-link
+          :to="{ name: 'wishlist' }"
+          class="a position-relative"
+          type="button">
           <i class="fa fa-heart-o" aria-hidden="true"></i>
           <span v-if="totalQtyWish" class="wish">{{ totalQtyWish }}</span>
         </router-link>
         <!-- Cart -->
-        <a class="a" type="button" @click="showCartFixed = true">
+        <a
+          class="a position-relative"
+          type="button"
+          @click="showCartFixed = true">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          <span v-if="totalQty" class="cart">{{ totalQty }}</span>
+          <span v-if="totalQty" class="cart position-absolute">{{
+            totalQty
+          }}</span>
         </a>
         <!-- User -->
         <!-- start drop down menu -->
@@ -117,24 +125,12 @@ export default {
 </script>
 
 <style>
-.navbar .dropdown-menu-profile {
-  background: var(--white);
-  position: absolute;
-  border-radius: var(--borderRaduis);
-  box-shadow: var(--shadow);
-  list-style: none;
-  transition: 0.4s;
-  z-index: 1000;
-}
-.navbar .dropdown-item-logout {
-  margin-top: 15px;
-}
 .navbar .dropdown-menu-profile.dropdown-menu-profile-hide {
   bottom: 60px;
   opacity: 0;
 }
 .navbar .dropdown-menu-profile.dropdown-menu-profile-show {
-  bottom: -211px;
+  bottom: -148px;
   opacity: 1;
 }
 .navbar .dropdown-itemm span,
@@ -143,7 +139,6 @@ export default {
   font-family: revert;
 }
 .navbar {
-  display: flex;
   font-family: "Roboto Condensed", sans-serif;
 }
 .navbar .navbar-brand.router-link-active {
@@ -163,83 +158,10 @@ export default {
 }
 .navbar .collapse .nav-link {
   font-weight: 600;
-  text-transform: capitalize;
 }
-.navbar .icons-col .settingsBox {
-  position: absolute;
-  width: 300px;
-  z-index: 999;
-  background: white;
-  right: 76px;
-  font-size: 13px;
-  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
-  padding: 15px;
-  transition: 0.2s;
-}
-.navbar .icons-col .settingsBox.show-setting-box {
-  top: 100%;
-  opacity: 1;
-}
-.navbar .icons-col .settingsBox.none-setting-box {
-  top: 140%;
-  opacity: 0;
-}
-.navbar .icons-col .settingsBox .customer-links .btn {
-  background: black;
-  border-radius: 0;
-  color: white;
-  font-weight: bold;
-  width: 100%;
-  font-size: 14px;
-}
-.navbar .icons-col .settingsBox .customer-links .register-now {
-  color: black;
-}
-.navbar .icons-col .settingsBox .customer-links .user-now {
-  color: black;
-  letter-spacing: 1px;
-}
-.navbar .icons-col .settingsBox .picker {
-  text-align: left;
-}
-.navbar .icons-col .settingsBox .picker .title {
-  display: block;
-  margin: 20px 0 10px;
-  letter-spacing: 1.2px;
-  color: black;
-  font-weight: 600;
-}
-.navbar .icons-col .settingsBox .picker ul {
-  display: block;
-  padding: 0;
-}
-.navbar .icons-col .settingsBox .picker ul li {
-  list-style: none;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 0px 9px;
-  margin: 0 9px 4px 0;
-  display: inline-block;
-}
-.navbar .icons-col .settingsBox .picker ul li:hover {
-  border: 1px solid rgb(255, 1, 1);
-}
-.navbar .icons-col .settingsBox .picker ul li a {
-  text-decoration: none;
-  color: black;
-}
-.navbar .icons-col .settingsBox .picker ul li:hover a {
-  color: rgb(255, 0, 0);
-}
-.navbar .icons-col .settingsBox .picker ul li.back {
-  border: 1px solid rgb(255, 1, 1);
-}
-.navbar .icons-col .settingsBox .picker ul li a.back {
-  color: rgb(255, 0, 0);
-}
+
 .navbar .icons-col .a {
-  position: relative;
-  color: black;
+  color: var(--black);
   display: inline-block;
   text-align: center;
   padding: 0 9px;
@@ -249,7 +171,6 @@ export default {
   border: none;
 }
 .navbar .icons-col a .cart {
-  position: absolute;
   background: #f46a6a;
   color: white;
   min-width: 16px;
@@ -342,14 +263,9 @@ export default {
   font-size: 16px;
 }
 .navbar .input-group .form-control {
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border-left: 0;
+  border-right: 0;
   border-radius: 0;
-  border-bottom: 1px solid #eeeeee;
-}
-.navbar .input-group .btn {
-  border: none;
 }
 .navbar .input-group .form-control::placeholder {
   font-size: 12px;
@@ -362,20 +278,10 @@ export default {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-
   background-color: #00000021;
   padding: 3px;
 }
-.navbar .a.profile {
-  margin-left: 10px;
-  text-decoration: none;
-  position: relative;
-}
-.navbar .profile .name-user {
-  font-size: 13px;
-  margin-left: 7px;
-  color: #000000c2;
-}
+
 .navbar .fa-angle-down {
   margin-left: 5px;
 }
@@ -543,7 +449,10 @@ export default {
 
 /* start media */
 @media (max-width: 983px) {
-  .checkbtn {
+  .navbar .navbar-brand {
+    margin: initial;
+  }
+  .navbar .checkbtn {
     display: block;
   }
   .navbar-responsive.active {

@@ -1,32 +1,30 @@
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-    namespaced: true,
-    state: {
-        types: {}
+  namespaced: true,
+  state: {
+    types: {},
+  },
+  mutations: {
+    getTypesMutation(state, pyload) {
+      state.types = pyload;
     },
-    mutations: {
-        getTypesMutation(state, pyload) {
-            state.types = pyload;
-        }
+  },
+  getters: {
+    getTypesGetters(state) {
+      return state.types;
     },
-    getters: {
-        getTypesGetters(state) {
-            return state.types;
-        }
+  },
+  actions: {
+    getTypesAction({ commit }) {
+      axios
+        .get("type/index")
+        .then((res) => {
+          commit("getTypesMutation", res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    actions: {
-        getTypesAction({ commit }) {
-            axios.get('type/index')
-            .then( res => {
-              commit('getTypesMutation', res.data)
-            } )
-            .catch( err => {
-              console.log(err)
-            } )
-          }
-    }
-}
-
-
-
+  },
+};

@@ -1,21 +1,23 @@
 <template>
   <div>
-  <!-- start Home -->
+    <!-- start Home -->
 
-  <!-- bar notification -->
+    <!-- bar notification -->
     <BarNotification />
     <!-- navbar -->
     <Navbar />
     <!-- carousel -->
-    <Carousel @heightNavbar="heightNavbar($event)" @heightBarMessage="heightBarMessage($event)" />
+    <Carousel
+      @heightNavbar="heightNavbar($event)"
+      @heightBarMessage="heightBarMessage($event)" />
     <!-- content-indent -->
-    <ContentIndent /> 
+    <ContentIndent />
     <!-- shopify-section -->
     <ShopifySectionTemplate />
     <!-- shopify-section -->
     <ShopifySection />
     <!-- logo bar -->
-    <LogoBar />    
+    <LogoBar />
     <!-- LatestBlog -->
     <LatestBlog />
     <!-- section cover -->
@@ -27,22 +29,20 @@
     <!-- ModalLogin -->
     <ModalLogin />
 
-  <!-- end Home -->
+    <!-- end Home -->
   </div>
 </template>
 <script>
-
-import Carousel from '../components/FrontEnd/Carousel.vue'
-import ContentIndent from '../components/FrontEnd/ContentIndent.vue'
-import ShopifySection from '../components/FrontEnd/ShopifySection.vue'
-import SectionCover from '../components/FrontEnd/SectionCover.vue'
-import ShopifySectionTemplate from '../components/FrontEnd/ShopifySectionTemplate.vue'
-import LogoBar from '../components/FrontEnd/LogoBar.vue'
-import LatestBlog from '../components/FrontEnd/LatestBlog.vue'
-
+import Carousel from "../components/FrontEnd/Carousel.vue";
+import ContentIndent from "../components/FrontEnd/ContentIndent.vue";
+import ShopifySection from "../components/FrontEnd/ShopifySection.vue";
+import SectionCover from "../components/FrontEnd/SectionCover.vue";
+import ShopifySectionTemplate from "../components/FrontEnd/ShopifySectionTemplate.vue";
+import LogoBar from "../components/FrontEnd/LogoBar.vue";
+import LatestBlog from "../components/FrontEnd/LatestBlog.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   props: {},
   components: {
     Carousel,
@@ -51,27 +51,23 @@ export default {
     SectionCover,
     ShopifySectionTemplate,
     LogoBar,
-    LatestBlog
+    LatestBlog,
   },
   data() {
-      return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
 body {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
-
-
-
 
 /* start shopify-section */
 .shopify-section .title h3 {
-    font-weight: 600;
+  font-weight: 600;
 }
 .card {
   position: relative;
@@ -84,11 +80,11 @@ body {
   overflow: hidden;
 }
 .card .img-wrap .img {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 360px;
-    transition: .2s;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 360px;
+  transition: 0.2s;
 }
 .card .img-wrap .img:hover {
   opacity: 0.7;
@@ -106,68 +102,68 @@ body {
   background-image: url(https://img.ltwebstatic.com/images3_pi/2022/09/24/166401188942154588c0c99644826be2834dce1f14_thumbnail_405x552.webp);
 }
 .card .img-wrap .icone {
-    position: absolute;
-    top: 113%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: .4s;
+  position: absolute;
+  top: 113%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.4s;
 }
 .card:hover .img-wrap .icone {
-    position: absolute;
-    top: 86%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card .img-wrap .icone .faa {
-    background-color: black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: white;
-    margin-left: 8px;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  margin-left: 8px;
 }
 .card .img-wrap .icone .faa:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .card .details {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 .card .details p:first-child {
-    color: black;
-    font-size: 12px;
-    text-transform: none;
-    font-weight: 400;
-    margin-bottom: 5px;
+  color: black;
+  font-size: 12px;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 .card .details p {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 .card .details .etoiles .fa {
-    color: #ff9800;
+  color: #ff9800;
 }
 
 .card .details .gridSwatches {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 .card .details .gridSwatches li {
-    overflow: hidden;
-    display: inline-block;
-    position: relative;
-    height: 17px;
-    width: 17px;
-    margin: 3px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    box-shadow: 0 0 1px 1px #ddd;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    transition: .4s;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  height: 17px;
+  width: 17px;
+  margin: 3px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 0 0 1px 1px #ddd;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: 0.4s;
 }
 .card .details .gridSwatches .one {
   background-color: #f05454 !important;
@@ -179,52 +175,45 @@ body {
   background-color: #1c09f0 !important;
 }
 .card .details .gridSwatches li:hover {
-    height: 19px;
-    width: 19px;
-    border: none;
-    border-radius: 50%;
+  height: 19px;
+  width: 19px;
+  border: none;
+  border-radius: 50%;
 }
-
-
 
 .template-test .grid-two,
 .template-test .grid-for {
   padding-bottom: 20px;
 }
 
-
-
-
-
 @media (max-width: 768px) {
   .shopify-section .card .img-wrap .img {
     background-position: 50% 0;
     height: 200px;
-}
-.card .img-wrap .icone {
+  }
+  .card .img-wrap .icone {
     top: 140%;
     display: flex;
-}
+  }
 }
 @media (max-width: 390px) {
   .shopify-section .card .img-wrap .img {
     height: 371px;
+  }
+  .shopify-section .card .img-wrap {
+    padding: 21px;
+  }
+  .shopify-section-template .card .img-wrap {
+    padding: 0px;
+  }
+  .card .details {
+    padding: 6px;
+  }
+  .card .details p {
+    font-size: 19px;
+  }
+  .card .details p:first-child {
+    font-size: 19px;
+  }
 }
- .shopify-section .card .img-wrap {
-  padding: 21px;
-}
-.shopify-section-template .card .img-wrap {
-  padding: 0px;
-}
-.card .details {
-  padding: 6px;
-}
-.card .details p {
-  font-size: 19px;
-}
-.card .details p:first-child {
-  font-size: 19px;
-}
-}
-
 </style>

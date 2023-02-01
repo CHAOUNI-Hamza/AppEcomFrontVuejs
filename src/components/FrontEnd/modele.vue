@@ -1,30 +1,16 @@
-<template>
-
-</template>
+<template></template>
 
 <script>
-
 export default {
-  components: {
-    
-  },
+  components: {},
   data() {
     return {
-        barMessage: true,
-    }
+      barMessage: true,
+    };
   },
-  methods: {
-
-  },
-  mounted() {
-    
-  }
-}
+  methods: {},
+  mounted() {},
+};
 </script>
 
-<style>
-
-</style>
-
-
-
+<style></style>
