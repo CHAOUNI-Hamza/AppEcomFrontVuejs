@@ -29,7 +29,7 @@
       </span>
     </div>
 
-    <div class="result" v-show="search.length > 0">
+    <div class="result mt-3" v-show="search.length > 0">
       <div class="row">
         <div
           v-for="(product, index) in products.data"
@@ -99,6 +99,8 @@ export default {
 /* start barSearchNavbar */
 .search-popup img {
   width: 100%;
+  height: 100px;
+  margin-bottom: 12px;
 }
 .search-popup .card .row {
   transition: 0.5s;

@@ -22,6 +22,9 @@
         id="exampleInputPassword1"
         placeholder="Password" />
     </div>
+    <div class="error" v-if="errorMessage">
+      {{ errorMessage }}
+    </div>
     <div class="mb-3 form-check">
       <a
         class="link-forgot"
@@ -96,6 +99,7 @@ export default {
       forgotpassword: {
         email: "",
       },
+      errorMessage: null,
     };
   },
   validations() {
@@ -131,13 +135,10 @@ export default {
       signIn: "auth/signIn",
     }),
     submit() {
-      /*this.v$.$touch();
-      if (!this.v$.$invalid) {*/
-      this.signIn(this.user).then(() => {
-        document.querySelector(".close").click();
-        this.$router.replace({ name: "dashboard" });
-      });
-      /*}*/
+      //this.v$.$touch();
+      //if (!this.v$.$invalid) {
+      this.signIn(this.user);
+      //}
     },
     forgoutPassword() {
       this.v$.$touch();
@@ -344,5 +345,18 @@ export default {
   padding: 11px;
   font-size: 10px;
   display: none;
+}
+
+form .text-fields-error {
+  border: 1px solid #ff00008f !important;
+}
+form .text-fields-error::placeholder {
+  color: #ff00008f !important;
+}
+form .error-msg {
+  color: #ff00008f;
+  font-size: 13px;
+  margin-top: 5px;
+  text-align: left;
 }
 </style>

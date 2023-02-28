@@ -1,9 +1,7 @@
 <template>
   <!-- start cardContentIndent -->
   <div class="collection">
-    <router-link
-      :to="{ name: 'categories', params: { id: category.id } }"
-      class="link">
+    <router-link :to="{ name: 'categories' }" class="link">
       <div class="img-wrap">
         <div
           class="img"

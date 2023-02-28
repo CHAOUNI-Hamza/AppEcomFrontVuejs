@@ -151,25 +151,8 @@
                 <i class="fa fa-heart-o" aria-hidden="true"></i>
                 <span type="button" class="msg">Add to Wishlist</span>
               </a>
-              <!--<a href="" class="delivery-returns">
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                <span class="msg">Delivery & Returns</span>
-                            </a>
-                            <a href="" class="enquiry">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <span class="msg">Enquiry</span>
-                            </a>-->
             </div>
             <div class="add-to-cart">
-              <!--<div class="qtyfield">
-                                <a class="qtyBtn" type="button" @click="reduceQty(product.id)">
-                                    <i class="fa fa-minus" aria-hidden="true"></i>
-                                </a>
-                                <span class="qtyBtn" >{{ product.qty }}</span>
-                                <a class="qtyBtn" type="button" @click="addQty(product.id)">
-                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                </a>
-                            </div>-->
               <button
                 @click.once="addItemToCart(product)"
                 type="button"

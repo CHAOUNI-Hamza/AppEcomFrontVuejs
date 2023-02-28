@@ -5,28 +5,30 @@
     <div class="container text-center">
       <div class="row">
         <div v-for="sex in sexs.data" :key="sex.id" class="col-md-6 grid-two">
-          <div class="collection-grid-item">
-            <a href="" class="collection-grid-item-link">
-              <div class="imgWrap">
-                <div
-                  class="img"
-                  v-bind:style="{
-                    backgroundImage: 'url(' + sex.image + ')',
-                  }"></div>
-              </div>
-              <div class="details">
-                <h3>ACCESSORIES {{ sex.title.toUpperCase() }}</h3>
-                <p>Add finishing touch to you outfit</p>
-                <router-link
-                  :to="{ name: 'categories' }"
-                  class="nav-link btn"
-                  aria-current="page"
-                  href="#"
-                  >Show Now</router-link
-                >
-              </div>
-            </a>
-          </div>
+          <router-link :to="{ name: 'categories' }">
+            <div class="collection-grid-item">
+              <a href="" class="collection-grid-item-link">
+                <div class="imgWrap">
+                  <div
+                    class="img"
+                    v-bind:style="{
+                      backgroundImage: 'url(' + sex.image + ')',
+                    }"></div>
+                </div>
+                <div class="details">
+                  <h3>ACCESSORIES {{ sex.title.toUpperCase() }}</h3>
+                  <p>Add finishing touch to you outfit</p>
+                  <router-link
+                    :to="{ name: 'categories' }"
+                    class="nav-link btn"
+                    aria-current="page"
+                    href="#"
+                    >Show Now
+                  </router-link>
+                </div>
+              </a>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>

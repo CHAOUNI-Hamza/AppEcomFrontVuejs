@@ -12,10 +12,7 @@
           :key="article.index"
           class="col-md-4 col-sm-4 col-xs-12 card">
           <div class="img-wrap">
-            <router-link
-              :to="{ name: 'categories' }"
-              aria-current="page"
-              href="#">
+            <router-link aria-current="page" href="#">
               <div
                 class="img"
                 v-bind:style="{

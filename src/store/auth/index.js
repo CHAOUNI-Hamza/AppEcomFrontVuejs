@@ -27,32 +27,7 @@ export default {
     async signIn({ dispatch }, credentials) {
       try {
         const response = await axios.post("auth/login", credentials);
-
-        // start swal
-        /*let timerInterval
-                Swal.fire({
-                title: 'Please wait a bit',
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-                }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    router.replace({name: 'home'}) 
-                }
-                })*/
-        // end swal
-
         router.replace({ name: "home" });
-
         return dispatch("attempt", response.data.access_token);
       } catch (error) {
         console.log(error);
@@ -68,22 +43,23 @@ export default {
           return;
         }
 
-        const response = await axios.post("auth/me");
-        console.log(response);
+        const response = await axios.get("auth/me");
 
         commit("setUser", response.data);
 
         console.log("success");
       } catch (error) {
-        console.log("hiho");
         commit("setUser", null);
         commit("setToken", null);
       }
     },
     signOut({ commit }) {
+      console.log("fdsfdsf");
       return axios.post("auth/logout").then(() => {
+        localStorage.removeItem("token");
         commit("setUser", null);
         commit("setToken", null);
+        router.replace({ name: "home" });
       });
     },
     signUp(_, credentials) {

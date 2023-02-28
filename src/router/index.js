@@ -2,33 +2,20 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import store from "@/store";
 
-//import Dashboard from "../views/BackEnd/Dashboard.vue";
+import Dashboard from "../views/BackEnd/Dashboard.vue";
 
 const routes = [
   {
-    path: "/admin",
-    component: () =>
-      import(
-        /* webpackChunkName: "Dashboard" */ "@/views/BackEnd/Dashboard.vue"
-      ),
-    redirect: "dashboard",
-    children: [
-      {
-        path: "dashboard",
-        name: "dashboard",
-        component: () =>
-          import(
-            /* webpackChunkName: "Dashboard" */ "@/views/BackEnd/Dashboard.vue"
-          ),
-        beforeEnter: (to, from, next) => {
-          if (!store.getters["auth/authenticated"]) {
-            return next({ name: "login" });
-          }
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({ name: "login" });
+      }
 
-          next();
-        },
-      },
-    ],
+      next();
+    },
   },
   {
     path: "/",
